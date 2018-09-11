@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply from: '../version.gradle'
+
+android {
+    compileSdkVersion sdkVersion
+    defaultConfig {
+        applicationId "com.varmin.cocar"
+        minSdkVersion sdkVersion
+        targetSdkVersion sdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//强制用于所有配置
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:27.1.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //.gradlew app:dependencies --configuration debugAndroidTestCompileClasspath
+    //TODO 版本，标红
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    //TODO 本地测试
+    testImplementation 'junit:junit:4.12'
+    //TODO 仪器测试
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    /**
+     * Error:com.android.dex.DexException: Multiple dex files define Landroid/support/v4/app/NotificationCompat$BuilderExtender;
+     * butterknife中依赖compat-->v4(源码依赖)，exclude v4的方式不起作用
+     * TODO 去掉compat库，不知道后续会不由有问题
+     */
+    implementation('com.jakewharton:butterknife:8.8.1') {
+        exclude module: 'support-compat'
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}
+
