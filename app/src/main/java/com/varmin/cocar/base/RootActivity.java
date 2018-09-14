@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
  * 文件描述：
  */
 
+//todo AppCompatActivity了解
 public class RootActivity extends AppCompatActivity {
 
 }

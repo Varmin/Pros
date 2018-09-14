@@ -1,11 +1,7 @@
 package com.varmin.cocar;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.TextView;
-
 import com.varmin.cocar.base.BaseActivity;
-
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
@@ -20,11 +16,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tvText.setText("initData");
+
     }
 
     @Override
     protected void initView() {
-
+        tvText.setText("initView");
     }
 }
