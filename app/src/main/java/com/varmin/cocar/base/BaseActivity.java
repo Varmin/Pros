@@ -11,7 +11,7 @@ import butterknife.Unbinder;
 /**
  * Created by HuangYang
  * on 2018/7/24  17:17.
- * 文件描述：
+ * 文件描述：各种初始化
  */
 
 public abstract class BaseActivity extends RootActivity {
