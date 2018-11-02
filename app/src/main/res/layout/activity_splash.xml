@@ -22,4 +22,11 @@
         app:textSize="40sp"
         app:paintStrokeWidth="10dp"
         app:pathStrokeColor="@color/white"/>
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Dagger Test"/>
 </RelativeLayout>

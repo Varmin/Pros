@@ -1,10 +1,16 @@
 package com.varmin.cocar;
 
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.varmin.cocar.base.BaseActivity;
 import com.varmin.cocar.constant.CommonFields;
+import com.varmin.cocar.dagger.DaggerPlatform;
+import com.varmin.cocar.dagger.VModule;
+import com.varmin.cocar.dagger.ZhaiNan;
 
 import butterknife.BindView;
 import yanzhikai.textpath.SyncTextPathView;
@@ -13,7 +19,8 @@ import yanzhikai.textpath.painter.FireworksPainter;
 public class SplashActivity extends BaseActivity {
     @BindView(R.id.stpv_path)
     SyncTextPathView stpvPath;
-
+    @BindView(R.id.btn_test)
+    Button btnTest;
 
     @Override
     protected int getLayoutId() {
@@ -22,7 +29,16 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        btnTest.setVisibility(View.VISIBLE);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ZhaiNan zaiNan = DaggerPlatform.builder()
+                        .vModule(new VModule("Varmin"))
+                        .build().makeWaiMai();
+                Toast.makeText(getActivity(), zaiNan.eat(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

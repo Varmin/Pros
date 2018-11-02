@@ -57,4 +57,8 @@ public abstract class BaseActivity extends RootActivity {
             unBinder.unbind();
         }
     }
+
+    protected BaseActivity getActivity(){
+        return this;
+    }
 }
