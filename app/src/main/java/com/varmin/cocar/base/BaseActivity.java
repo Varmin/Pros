@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
+import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.SpanUtils;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
+import static com.blankj.utilcode.util.CrashUtils.init;
 
 /**
  * Created by HuangYang
@@ -16,6 +21,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseActivity extends RootActivity {
     private Unbinder unBinder;
+    protected SPUtils spUtils;
 
     //todo Activity生命周期 onCreate的区别
     @Override
@@ -28,8 +34,13 @@ public abstract class BaseActivity extends RootActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         unBinder = ButterKnife.bind(this);
+        init();
         initData();
         initView();
+    }
+
+    private void init() {
+        spUtils = SPUtils.getInstance();
     }
 
     protected abstract int getLayoutId();

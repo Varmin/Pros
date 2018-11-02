@@ -1,6 +1,6 @@
 package com.varmin.cocar.base;
 
-import android.support.v7.app.AppCompatActivity;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 /**
  * Created by HuangYang
@@ -9,6 +9,6 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 //todo AppCompatActivity了解
-public class RootActivity extends AppCompatActivity {
+public class RootActivity extends RxAppCompatActivity {
 
 }
