@@ -1,5 +1,7 @@
 package com.varmin.cocar.dagger;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -9,10 +11,13 @@ import dagger.Provides;
  * 文件描述：
  */
 @Module
-public class VModule {
-    private final String storeName;
+public class FoodModule {
 
-    public VModule(String storeName){
+    public String storeName;
+
+    public FoodModule(){
+    }
+    public FoodModule(String storeName){
         this.storeName = storeName;
     }
 
@@ -22,7 +27,13 @@ public class VModule {
     }
 
     @Provides
+    @Named("storeName")
     public String provideStoreName() {
         return storeName;
+    }
+
+    @Provides
+    public static Tea provideTea(){
+        return new Tea();
     }
 }

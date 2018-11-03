@@ -1,6 +1,7 @@
 package com.varmin.cocar.dagger;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by HuangYang
@@ -13,7 +14,10 @@ public class ZhaiNan {
     @Inject
     Noodle noodle;
     @Inject
+    @Named("storeName")
     String storeName;
+    @Inject
+    Apple apple;
 
 
     @Inject
@@ -32,6 +36,10 @@ public class ZhaiNan {
         if (noodle != null) {
             sb.append("  ");
             sb.append(noodle.toString());
+        }
+        if (apple != null) {
+            sb.append("  ");
+            sb.append(apple.toString());
         }
         return sb.toString();
     }
