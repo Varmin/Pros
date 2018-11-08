@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ActivityUtils;
+import com.varmin.cocar.activity.LoginActivity;
 import com.varmin.cocar.base.BaseActivity;
 import com.varmin.cocar.constant.CommonFields;
 import com.varmin.cocar.dagger.DaggerFoodComponent;
@@ -66,7 +68,7 @@ public class SplashActivity extends BaseActivity {
                 if (spUtils.getBoolean(CommonFields.HAS_LOGIN)) {
 //                    ActivityUtils.startActivity();
                 }else {
-
+                    ActivityUtils.startActivity(LoginActivity.class);
                 }
             }
         }, 3000);
