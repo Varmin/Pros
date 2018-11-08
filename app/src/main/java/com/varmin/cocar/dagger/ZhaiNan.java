@@ -12,6 +12,8 @@ public class ZhaiNan {
     @Inject
     Baozi baozi;
     @Inject
+    Baozi baozi2;
+    @Inject
     Noodle noodle;
     @Inject
     @Named("storeName")

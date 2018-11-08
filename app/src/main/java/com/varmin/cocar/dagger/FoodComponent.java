@@ -9,6 +9,7 @@ import dagger.Component;
  * on 2018/11/2  17:16.
  * 文件描述：
  */
+@BaoZiSingle
 @Component(modules = FoodModule.class, dependencies = FruitComponent.class)
 public interface FoodComponent {
     ZhaiNan makeWaiMai();

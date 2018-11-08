@@ -19,6 +19,7 @@ import javax.inject.Named;
 
 import butterknife.BindView;
 import yanzhikai.textpath.SyncTextPathView;
+import yanzhikai.textpath.painter.FireworksPainter;
 
 public class SplashActivity extends BaseActivity {
     @BindView(R.id.stpv_path)
@@ -55,8 +56,8 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        /*stpvPath.setPathPainter(new FireworksPainter());
-        stpvPath.startAnimation(0,1);*/
+        stpvPath.setPathPainter(new FireworksPainter());
+        stpvPath.startAnimation(0,1);
 
         //todo 用RxJava延迟
         new Handler().postDelayed(new Runnable() {
