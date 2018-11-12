@@ -17,7 +17,6 @@ import io.reactivex.annotations.Nullable;
  */
 public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> extends BaseActivity implements BaseContract.BaseView{
 
-    @Nullable
     @Inject
     protected T mPresenter;
 
