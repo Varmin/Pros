@@ -68,8 +68,8 @@ dependencies {
     //utils
     implementation 'com.blankj:utilcode:1.9.6'
     //ARouter
-//    implementation 'com.alibaba:arouter-api:1.3.1'
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    implementation 'com.alibaba:arouter-api:1.3.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

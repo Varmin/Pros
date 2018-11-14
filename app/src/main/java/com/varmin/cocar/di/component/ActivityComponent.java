@@ -1,6 +1,7 @@
 package com.varmin.cocar.di.component;
 
 import com.varmin.cocar.activity.LoginActivity;
+import com.varmin.cocar.activity.RegisterActivity;
 import com.varmin.cocar.di.module.ActivityModule;
 import com.varmin.cocar.di.scope.PerActivityScope;
 
@@ -15,4 +16,5 @@ import dagger.Component;
 @Component(modules = ActivityModule.class, dependencies = ApplicationComponent.class)
 public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
+    void inject(RegisterActivity registerActivity);
 }

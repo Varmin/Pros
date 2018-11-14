@@ -1,6 +1,5 @@
 package com.varmin.cocar.di.module;
 
-import com.varmin.cocar.di.scope.PerActivityScope;
 
 import dagger.Module;
 

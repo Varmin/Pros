@@ -7,4 +7,7 @@ package com.varmin.cocar.constant;
  */
 public class CommonFields {
     public static final String HAS_LOGIN = "hasLogin";
+    public static final String LOGIN_ACCOUNT = "account";
+    public static final String LOGIN_PASSWORD = "password";
+
 }

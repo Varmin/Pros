@@ -15,5 +15,7 @@ public class LoginActPresenter extends BasePresenter<LoginActContract.View> impl
     public LoginActPresenter(){}
 
 
+    public void login(String account, String password) {
 
+    }
 }

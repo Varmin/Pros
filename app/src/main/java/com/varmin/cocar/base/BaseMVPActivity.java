@@ -3,6 +3,7 @@ package com.varmin.cocar.base;
 
 import android.os.Bundle;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.varmin.cocar.di.component.ActivityComponent;
 import com.varmin.cocar.di.component.DaggerActivityComponent;
@@ -70,12 +71,12 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
 
     @Override
     public void showSuccess(String message) {
-
+        ToastUtils.showShort(message);
     }
 
     @Override
     public void showFaild(String message) {
-
+        ToastUtils.showShort(message);
     }
 
     @Override
