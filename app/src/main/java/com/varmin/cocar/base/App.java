@@ -5,10 +5,16 @@ import android.os.Build;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
+import com.kingja.loadsir.core.LoadSir;
 import com.varmin.cocar.BuildConfig;
 import com.varmin.cocar.di.component.ApplicationComponent;
 import com.varmin.cocar.di.component.DaggerApplicationComponent;
 import com.varmin.cocar.di.module.ApplicationModule;
+import com.varmin.cocar.loadCallback.CustomCallback;
+import com.varmin.cocar.loadCallback.EmptyCallback;
+import com.varmin.cocar.loadCallback.ErrorCallback;
+import com.varmin.cocar.loadCallback.LoadingCallback;
+import com.varmin.cocar.loadCallback.TimeoutCallback;
 
 /**
  * Created by HuangYang
@@ -27,6 +33,18 @@ public class App extends Application {
         initRouter();
         Utils.init(this);
         initApplicationComponent();
+        initLoadSir();
+    }
+
+    private void initLoadSir() {
+        LoadSir.beginBuilder()
+                .addCallback(new ErrorCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .addCallback(new TimeoutCallback())
+                .addCallback(new CustomCallback())
+                .setDefaultCallback(LoadingCallback.class)
+                .commit();
     }
 
     private void initRouter() {
