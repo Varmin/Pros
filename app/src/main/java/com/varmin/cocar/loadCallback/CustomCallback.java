@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 import com.kingja.loadsir.callback.Callback;
+import com.varmin.cocar.R;
 
 /**
- * Description:TODO
  * Create Time:2017/9/3 10:22
  * Author:KingJA
  * Email:kingjavip@gmail.com

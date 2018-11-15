@@ -2,9 +2,9 @@ package com.varmin.cocar.loadCallback;
 
 
 import com.kingja.loadsir.callback.Callback;
+import com.varmin.cocar.R;
 
 /**
- * Description:TODO
  * Create Time:2017/9/4 10:20
  * Author:KingJA
  * Email:kingjavip@gmail.com

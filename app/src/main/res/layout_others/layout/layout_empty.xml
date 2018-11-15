@@ -22,5 +22,5 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/click_me_to_retry"/>
+        android:text="click me to retry!"/>
 </LinearLayout>
