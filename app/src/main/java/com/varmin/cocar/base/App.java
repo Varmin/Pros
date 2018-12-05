@@ -3,12 +3,10 @@ package com.varmin.cocar.base;
 import android.app.Application;
 import android.os.Build;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.Utils;
 import com.kingja.loadsir.core.LoadSir;
 import com.varmin.cocar.BuildConfig;
 import com.varmin.cocar.di.component.ApplicationComponent;
-import com.varmin.cocar.di.component.DaggerApplicationComponent;
 import com.varmin.cocar.di.module.ApplicationModule;
 import com.varmin.cocar.loadCallback.CustomCallback;
 import com.varmin.cocar.loadCallback.EmptyCallback;
@@ -30,7 +28,7 @@ public class App extends Application {
         super.onCreate();
         mInstance = this;
 
-        initRouter();
+        //initRouter();
         Utils.init(this);
         initApplicationComponent();
         initLoadSir();
@@ -47,18 +45,18 @@ public class App extends Application {
                 .commit();
     }
 
-    private void initRouter() {
+    /*private void initRouter() {
         if (BuildConfig.DEBUG) {
             ARouter.openLog();
             ARouter.openDebug();
         }
         ARouter.init(mInstance);
-    }
+    }*/
 
     private void initApplicationComponent() {
-        mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(mInstance))
-                .build();
+//        mApplicationComponent = DaggerApplicationComponent.builder()
+//                .applicationModule(new ApplicationModule(mInstance))
+//                .build();
     }
 
     public ApplicationComponent getApplicationComponent() {

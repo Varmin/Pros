@@ -34,12 +34,12 @@ public abstract class BaseActivity extends RootActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         unBinder = ButterKnife.bind(this);
-        init();
+        internalInit();
         initData();
         initView();
     }
 
-    private void init() {
+    private void internalInit() {
         spUtils = SPUtils.getInstance();
     }
 

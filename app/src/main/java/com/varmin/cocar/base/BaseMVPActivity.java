@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.blankj.utilcode.util.ToastUtils;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.varmin.cocar.di.component.ActivityComponent;
-import com.varmin.cocar.di.component.DaggerActivityComponent;
 
 import javax.inject.Inject;
 import io.reactivex.annotations.Nullable;
@@ -28,10 +27,10 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
     protected abstract void initInjector();
     @Override
     protected void onCreate(@android.support.annotation.Nullable Bundle savedInstanceState) {
-        initActivityComponent();
+//        initActivityComponent();
+//        initInjector();
         super.onCreate(savedInstanceState);
-        initInjector();
-        attachView();
+//        attachView();
     }
 
 
@@ -42,9 +41,9 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
     }
 
     private void initActivityComponent() {
-        mActivityComponent = DaggerActivityComponent.builder()
-                .applicationComponent(((App)getApplication()).getApplicationComponent())
-                .build();
+//        mActivityComponent = DaggerActivityComponent.builder()
+//                .applicationComponent(((App)getApplication()).getApplicationComponent())
+//                .build();
     }
 
     private void attachView() {
