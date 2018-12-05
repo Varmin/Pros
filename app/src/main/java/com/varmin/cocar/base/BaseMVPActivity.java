@@ -18,6 +18,7 @@ import io.reactivex.annotations.Nullable;
  */
 public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> extends BaseActivity implements BaseContract.BaseView{
 
+    public String TAG;
     @Inject
     protected T mPresenter;
 
@@ -28,10 +29,11 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
     protected abstract void initInjector();
     @Override
     protected void onCreate(@android.support.annotation.Nullable Bundle savedInstanceState) {
-//        initActivityComponent();
-//        initInjector();
+        TAG = getClass().getSimpleName();
+        initActivityComponent();
+        initInjector();
         super.onCreate(savedInstanceState);
-//        attachView();
+        attachView();
     }
 
 

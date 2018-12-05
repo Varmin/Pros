@@ -2,6 +2,7 @@ package com.varmin.cocar.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -14,11 +15,8 @@ import com.varmin.cocar.contract.LoginActContract;
 import com.varmin.cocar.presenter.LoginActPresenter;
 import butterknife.BindView;
 import butterknife.OnClick;
-public class LoginActivity extends AppCompatActivity {
 
-}
-
-/*public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements LoginActContract.View {
+public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements LoginActContract.View {
     @BindView(R.id.tv_al_account)
     AutoCompleteTextView tvAlAccount;
     @BindView(R.id.tv_al_password)
@@ -27,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void initInjector() {
         mActivityComponent.inject(this);
+        Log.d(TAG, "initInjector: "+mPresenter.toString());
     }
 
     @Override
@@ -61,13 +60,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.regitster:
-                ARouter.getInstance().build("/activity/RegisterActivity").navigation();
+                //ARouter.getInstance().build("/activity/RegisterActivity").navigation();
                 break;
         }
     }
 
     @Override
     public void loginSuccess() {
-        ARouter.getInstance().build("/activity/MainActivity").navigation();
+        //ARouter.getInstance().build("/activity/MainActivity").navigation();
     }
-}*/
+}
