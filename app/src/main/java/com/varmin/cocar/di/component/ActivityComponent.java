@@ -13,7 +13,7 @@ import dagger.Component;
  * 文件描述：
  */
 @PerActivityScope
-@Component(modules = ActivityModule.class)
+@Component(modules = ActivityModule.class, dependencies = ApplicationComponent.class)
 public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
     void inject(RegisterActivity registerActivity);

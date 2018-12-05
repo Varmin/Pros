@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.Utils;
 import com.kingja.loadsir.core.LoadSir;
 import com.varmin.cocar.BuildConfig;
 import com.varmin.cocar.di.component.ApplicationComponent;
+import com.varmin.cocar.di.component.DaggerApplicationComponent;
 import com.varmin.cocar.di.module.ApplicationModule;
 import com.varmin.cocar.loadCallback.CustomCallback;
 import com.varmin.cocar.loadCallback.EmptyCallback;
@@ -54,9 +55,9 @@ public class App extends Application {
     }*/
 
     private void initApplicationComponent() {
-//        mApplicationComponent = DaggerApplicationComponent.builder()
-//                .applicationModule(new ApplicationModule(mInstance))
-//                .build();
+        mApplicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(mInstance))
+                .build();
     }
 
     public ApplicationComponent getApplicationComponent() {
