@@ -5,6 +5,7 @@ import android.os.Build;
 
 import com.blankj.utilcode.util.Utils;
 import com.kingja.loadsir.core.LoadSir;
+import com.varmin.cocar.BuildConfig;
 import com.varmin.cocar.di.component.ApplicationComponent;
 import com.varmin.cocar.di.component.DaggerApplicationComponent;
 import com.varmin.cocar.di.module.ApplicationModule;
