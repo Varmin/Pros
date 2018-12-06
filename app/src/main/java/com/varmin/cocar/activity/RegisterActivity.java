@@ -10,7 +10,7 @@ import com.varmin.cocar.presenter.RegisterPresenter;
 //@Route(path = "/activity/RegisterActivity")
 public class RegisterActivity extends AppCompatActivity {
 
-    /*@Override
+/*@Override
     protected void initInjector() {
         mActivityComponent.inject(this);
     }
@@ -29,9 +29,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void initView() {
 
     }*/
+
 }
 
-/*@Route(path = "/activity/RegisterActivity")
+/*
+@Route(path = "/activity/RegisterActivity")
 public class RegisterActivity extends BaseMVPActivity<RegisterPresenter> implements RegisterActContract.View {
 
     @Override
@@ -53,4 +55,5 @@ public class RegisterActivity extends BaseMVPActivity<RegisterPresenter> impleme
     protected void initView() {
 
     }
-}*/
+}
+*/

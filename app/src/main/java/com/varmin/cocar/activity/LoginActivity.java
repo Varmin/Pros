@@ -24,7 +24,6 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
 
     @Override
     protected void initInjector() {
-        mActivityComponent.inject(this);
         Log.d(TAG, "initInjector: "+mPresenter.toString());
     }
 
@@ -60,13 +59,13 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
                 }
                 break;
             case R.id.regitster:
-                //ARouter.getInstance().build("/activity/RegisterActivity").navigation();
+//                ARouter.getInstance().build("/activity/RegisterActivity").navigation();
                 break;
         }
     }
 
     @Override
     public void loginSuccess() {
-        //ARouter.getInstance().build("/activity/MainActivity").navigation();
+//        ARouter.getInstance().build("/activity/MainActivity").navigation();
     }
 }

@@ -5,7 +5,6 @@ import android.os.Build;
 
 import com.blankj.utilcode.util.Utils;
 import com.kingja.loadsir.core.LoadSir;
-import com.varmin.cocar.BuildConfig;
 import com.varmin.cocar.di.component.ApplicationComponent;
 import com.varmin.cocar.di.component.DaggerApplicationComponent;
 import com.varmin.cocar.di.module.ApplicationModule;
@@ -29,7 +28,7 @@ public class App extends Application {
         super.onCreate();
         mInstance = this;
 
-        //initRouter();
+        initRouter();
         Utils.init(this);
         initApplicationComponent();
         initLoadSir();
@@ -46,13 +45,13 @@ public class App extends Application {
                 .commit();
     }
 
-    /*private void initRouter() {
-        if (BuildConfig.DEBUG) {
+    private void initRouter() {
+        /*if (BuildConfig.DEBUG) {
             ARouter.openLog();
             ARouter.openDebug();
         }
-        ARouter.init(mInstance);
-    }*/
+        ARouter.init(mInstance);*/
+    }
 
     private void initApplicationComponent() {
         mApplicationComponent = DaggerApplicationComponent.builder()
