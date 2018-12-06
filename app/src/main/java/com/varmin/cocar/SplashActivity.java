@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.varmin.cocar.activity.LoginActivity;
+import com.varmin.cocar.activity.RegisterActivity;
 import com.varmin.cocar.base.BaseActivity;
 import com.varmin.cocar.constant.CommonFields;
 import butterknife.BindView;
@@ -43,7 +44,8 @@ public class SplashActivity extends BaseActivity {
                 if (spUtils.getBoolean(CommonFields.HAS_LOGIN)) {
 //                    ActivityUtils.startActivity();
                 }else {
-                    ActivityUtils.startActivity(LoginActivity.class);
+                    //ActivityUtils.startActivity(LoginActivity.class);
+                    ActivityUtils.startActivity(RegisterActivity.class);
                 }
             }
         }, 1000);
