@@ -24,7 +24,7 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
 
     @Override
     protected void initInjector() {
-        Log.d(TAG, "initInjector: "+mPresenter.toString());
+        mActivityComponent.inject(this);
     }
 
     @Override
