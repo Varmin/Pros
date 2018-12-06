@@ -1,12 +1,12 @@
 package com.varmin.cocar.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.SPUtils;
 import com.varmin.cocar.R;
 import com.varmin.cocar.base.BaseMVPActivity;
@@ -59,13 +59,13 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
                 }
                 break;
             case R.id.regitster:
-//                ARouter.getInstance().build("/activity/RegisterActivity").navigation();
+                ARouter.getInstance().build("/activity/RegisterActivity").navigation();
                 break;
         }
     }
 
     @Override
     public void loginSuccess() {
-//        ARouter.getInstance().build("/activity/MainActivity").navigation();
+        ARouter.getInstance().build("/activity/MainActivity").navigation();
     }
 }

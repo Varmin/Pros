@@ -10,8 +10,6 @@ import javax.inject.Inject;
  * on 2018/11/13  18:25.
  * 文件描述：
  */
-/*public class RegisterPresenter {
-}*/
 
 public class RegisterPresenter extends BasePresenter<RegisterActContract.View> implements RegisterActContract.Presenter {
     @Inject
