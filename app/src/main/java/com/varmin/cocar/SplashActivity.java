@@ -1,13 +1,21 @@
 package com.varmin.cocar;
 
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.varmin.cocar.activity.LoginActivity;
+import com.varmin.cocar.activity.MainActivity;
 import com.varmin.cocar.base.BaseActivity;
 import com.varmin.cocar.constant.CommonFields;
+
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import yanzhikai.textpath.SyncTextPathView;
 import yanzhikai.textpath.painter.FireworksPainter;
 
@@ -16,6 +24,7 @@ public class SplashActivity extends BaseActivity {
     SyncTextPathView stpvPath;
     @BindView(R.id.btn_test)
     Button btnTest;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_splash;
@@ -23,7 +32,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        btnTest.setVisibility(View.VISIBLE);
+        btnTest.setVisibility(View.GONE);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,20 +42,21 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        stpvPath.setPathPainter(new FireworksPainter());
-        stpvPath.startAnimation(0,1);
+//        stpvPath.setPathPainter(new FireworksPainter());
+//        stpvPath.startAnimation(0,1);
 
-        //todo 用RxJava延迟
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (spUtils.getBoolean(CommonFields.HAS_LOGIN)) {
-//                    ActivityUtils.startActivity();
-                }else {
-                    ActivityUtils.startActivity(LoginActivity.class);
-                }
-            }
-        }, 1000);
-
+        Disposable disposable = Observable.timer(1, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        if (spUtils.getBoolean(CommonFields.HAS_LOGIN)) {
+                            ActivityUtils.startActivity(MainActivity.class);
+                        } else {
+                            ActivityUtils.startActivity(LoginActivity.class);
+                        }
+                    }
+                });
+        addDisposable(disposable);
     }
 }

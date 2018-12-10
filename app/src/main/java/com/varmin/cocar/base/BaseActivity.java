@@ -10,6 +10,8 @@ import com.blankj.utilcode.util.SpanUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 import static com.blankj.utilcode.util.CrashUtils.init;
 
@@ -22,6 +24,14 @@ import static com.blankj.utilcode.util.CrashUtils.init;
 public abstract class BaseActivity extends RootActivity {
     private Unbinder unBinder;
     protected SPUtils spUtils;
+    private CompositeDisposable compositeDisposable;
+    private Disposable mDisposable;
+
+    protected abstract int getLayoutId();
+
+    protected abstract void initData();
+
+    protected abstract void initView();
 
     //todo Activity生命周期 onCreate的区别
     @Override
@@ -38,17 +48,15 @@ public abstract class BaseActivity extends RootActivity {
         initData();
         initView();
     }
-
     private void internalInit() {
         spUtils = SPUtils.getInstance();
+        compositeDisposable = new CompositeDisposable();
     }
 
-    protected abstract int getLayoutId();
-
-    protected abstract void initData();
-
-    protected abstract void initView();
-
+    protected void addDisposable(Disposable disposable){
+        this.mDisposable = disposable;
+        compositeDisposable.add(disposable);
+    }
 
     @Override
     protected void onDestroy() {
@@ -56,9 +64,14 @@ public abstract class BaseActivity extends RootActivity {
         if (unBinder != null) {
             unBinder.unbind();
         }
+        if (compositeDisposable != null && mDisposable != null) {
+            compositeDisposable.delete(mDisposable);
+        }
     }
 
     protected BaseActivity getActivity(){
         return this;
     }
+
+
 }

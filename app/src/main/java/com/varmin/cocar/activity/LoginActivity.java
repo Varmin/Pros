@@ -44,8 +44,6 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
         if (!TextUtils.isEmpty(account)) tvAlAccount.setText(account);
         if (!TextUtils.isEmpty(password)) tvAlPassword.setText(password);
     }
-
-    //TODO 看RxJava和Retrofit
     @OnClick({R.id.login, R.id.regitster})
     public void onViewClicked(View view) {
         switch (view.getId()) {
