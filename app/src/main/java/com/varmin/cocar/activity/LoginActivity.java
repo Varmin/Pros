@@ -1,11 +1,9 @@
 package com.varmin.cocar.activity;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.SPUtils;
 import com.varmin.cocar.R;
@@ -33,9 +31,7 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
     }
 
     @Override
-    protected void initData() {
-
-    }
+    protected void initData() {}
 
     @Override
     protected void initView() {

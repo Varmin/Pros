@@ -2,6 +2,7 @@ package com.varmin.cocar.base;
 
 import android.app.Application;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.kingja.loadsir.core.LoadSir;
 import com.varmin.cocar.BuildConfig;
@@ -23,6 +24,7 @@ public class App extends Application {
     private static App mInstance;
     private ApplicationComponent mApplicationComponent;
 
+    public static Application getApplication(){return mInstance;}
     @Override
     public void onCreate() {
         super.onCreate();
@@ -30,9 +32,14 @@ public class App extends Application {
 
         initRouter();
         Utils.init(this);
+        LogUtils.getConfig()
+                .setLogSwitch(BuildConfig.DEBUG)
+                .setBorderSwitch(false);
+
         initApplicationComponent();
-        initLoadSir();
+        //initLoadSir();
     }
+
 
     private void initLoadSir() {
         LoadSir.beginBuilder()

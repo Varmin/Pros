@@ -51,6 +51,7 @@
                     android:inputType="text|textAutoComplete"
                     android:maxLines="1"
                     android:singleLine="true"
+                    android:text="varmin"
                     android:textColorHint="#767676" />
 
             </android.support.design.widget.TextInputLayout>
@@ -68,6 +69,7 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
+                    android:text="123456"
                     android:textColorHint="#767676" />
 
             </android.support.design.widget.TextInputLayout>
@@ -80,6 +82,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/sign_in"
                 android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
                 android:textSize="16sp" />
 
             <TextView

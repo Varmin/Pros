@@ -12,6 +12,6 @@ public interface LoginActContract {
         void loginSuccess();
     }
     interface Presenter extends BaseContract.BasePresenter<View>{
-
+        void login(String account, String password);
     }
 }

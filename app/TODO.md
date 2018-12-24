@@ -1,5 +1,10 @@
 ### TODO:先做开展下一步
-* LoadingView
+* LoadingView：方案
+    * 自己实现：
+        * RelativeLayout 在 layout 时需要 measure 两次？
+        * 如何实现第三方库：注意什么、资源命名等
+        * 注解代替枚举？怎么做？
+
 * LogUtils
 * OKhttp、Retrofit、RxJava、RxLife
 
