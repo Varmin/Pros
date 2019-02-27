@@ -6,6 +6,7 @@ import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.varmin.cocar.base.App;
 import com.varmin.cocar.base.BasePresenter;
+import com.varmin.cocar.constant.CommonFields;
 import com.varmin.cocar.contract.LoginActContract;
 
 import java.io.IOException;
@@ -19,7 +20,6 @@ import okhttp3.Callback;
 import okhttp3.Cookie;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -69,6 +69,7 @@ public class LoginActPresenter extends BasePresenter<LoginActContract.View> impl
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                //spUtils.put(CommonFields.HAS_LOGIN, true);
                 LogUtils.d(response.toString()+", "+response.body().string());
 
             }

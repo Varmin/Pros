@@ -14,7 +14,7 @@ import io.reactivex.annotations.Nullable;
 /**
  * Created by HuangYang
  * on 2018/11/1  19:23.
- * 文件描述：
+ * 文件描述：使用MVP
  */
 public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> extends BaseActivity implements BaseContract.BaseView{
 

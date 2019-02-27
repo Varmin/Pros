@@ -44,9 +44,7 @@ public class SplashActivity extends BaseActivity {
     protected void initView() {
 //        stpvPath.setPathPainter(new FireworksPainter());
 //        stpvPath.startAnimation(0,1);
-
         Disposable disposable = Observable.timer(1, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {

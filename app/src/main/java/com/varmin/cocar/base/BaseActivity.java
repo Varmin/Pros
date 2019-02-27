@@ -18,14 +18,13 @@ import static com.blankj.utilcode.util.CrashUtils.init;
 /**
  * Created by HuangYang
  * on 2018/7/24  17:17.
- * 文件描述：各种初始化
+ * 文件描述：不使用MVP模式可继承
  */
 
 public abstract class BaseActivity extends RootActivity {
     private Unbinder unBinder;
     protected SPUtils spUtils;
     private CompositeDisposable compositeDisposable;
-    private Disposable mDisposable;
 
     protected abstract int getLayoutId();
 
@@ -33,7 +32,6 @@ public abstract class BaseActivity extends RootActivity {
 
     protected abstract void initView();
 
-    //todo Activity生命周期 onCreate的区别
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
@@ -54,7 +52,6 @@ public abstract class BaseActivity extends RootActivity {
     }
 
     protected void addDisposable(Disposable disposable){
-        this.mDisposable = disposable;
         compositeDisposable.add(disposable);
     }
 
@@ -64,8 +61,8 @@ public abstract class BaseActivity extends RootActivity {
         if (unBinder != null) {
             unBinder.unbind();
         }
-        if (compositeDisposable != null && mDisposable != null) {
-            compositeDisposable.delete(mDisposable);
+        if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
+            compositeDisposable.dispose();
         }
     }
 

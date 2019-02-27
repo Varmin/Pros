@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.varmin.cocar.R;
 import com.varmin.cocar.base.BaseMVPActivity;
@@ -31,12 +32,13 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
     }
 
     @Override
-    protected void initData() {}
+    protected void initData() {
+    }
 
     @Override
     protected void initView() {
-        String account = SPUtils.getInstance().getString(CommonFields.LOGIN_ACCOUNT);
-        String password = SPUtils.getInstance().getString(CommonFields.LOGIN_PASSWORD);
+        String account = spUtils.getString(CommonFields.LOGIN_ACCOUNT);
+        String password = spUtils.getString(CommonFields.LOGIN_PASSWORD);
         if (!TextUtils.isEmpty(account)) tvAlAccount.setText(account);
         if (!TextUtils.isEmpty(password)) tvAlPassword.setText(password);
     }
