@@ -33,15 +33,23 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
 
     @Override
     protected void initData() {
+
     }
 
     @Override
     protected void initView() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         String account = spUtils.getString(CommonFields.LOGIN_ACCOUNT);
         String password = spUtils.getString(CommonFields.LOGIN_PASSWORD);
         if (!TextUtils.isEmpty(account)) tvAlAccount.setText(account);
         if (!TextUtils.isEmpty(password)) tvAlPassword.setText(password);
     }
+
     @OnClick({R.id.login, R.id.regitster})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -63,5 +71,6 @@ public class LoginActivity extends BaseMVPActivity<LoginActPresenter> implements
     @Override
     public void loginSuccess() {
         ARouter.getInstance().build("/activity/MainActivity").navigation();
+        finishPage();
     }
 }

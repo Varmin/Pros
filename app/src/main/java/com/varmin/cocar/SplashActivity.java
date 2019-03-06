@@ -3,6 +3,7 @@ package com.varmin.cocar;
 import android.view.View;
 import android.widget.Button;
 import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.Utils;
 import com.varmin.cocar.activity.LoginActivity;
 import com.varmin.cocar.activity.MainActivity;
 import com.varmin.cocar.base.BaseActivity;
@@ -32,12 +33,13 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        btnTest.setVisibility(View.GONE);
+        /*btnTest.setVisibility(View.GONE);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             }
-        });
+        });*/
+        spUtils.put(CommonFields.HAS_LOGIN, false);
     }
 
     @Override
@@ -53,6 +55,7 @@ public class SplashActivity extends BaseActivity {
                         } else {
                             ActivityUtils.startActivity(LoginActivity.class);
                         }
+                        finishPage();
                     }
                 });
         addDisposable(disposable);

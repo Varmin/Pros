@@ -9,6 +9,7 @@
 * OKhttp、Retrofit、RxJava、RxLife
 
 
+
 ### todo：
 * Leak
 * 本地测试、仪器测试：测试方案。
@@ -18,6 +19,9 @@
 
 ### Tips：
 * ./gradlew app:dependencies
+
+#### Okhttp:
+* response.body().string() 访问第二次就会报错，已closed
 
 
 ### Note
@@ -35,3 +39,9 @@ String fileName = targetElement.getFileName();
 String methodName = targetElement.getMethodName();
 int lineNum = targetElement.getLineNumber();
 ```
+
+#### App 标配
+* Log、Toast、Dialog、Sp、时间格式...封装
+* 状态View
+* 解析Json
+* 刷新View

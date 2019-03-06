@@ -8,6 +8,10 @@ import com.varmin.cocar.base.App;
 import com.varmin.cocar.base.BasePresenter;
 import com.varmin.cocar.constant.CommonFields;
 import com.varmin.cocar.contract.LoginActContract;
+import com.varmin.cocar.net.RetrofitManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,15 +40,17 @@ public class LoginActPresenter extends BasePresenter<LoginActContract.View> impl
 
     @Override
     public void login(String account, String password) {
-        String url = "http://www.wanandroid.com/user/login";
-
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getApplication())))
-                .connectTimeout(2, TimeUnit.SECONDS).build();
-
         /*MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         String json = "{\"username\":"+account+",password:"+password+"}";
         RequestBody body = RequestBody.create(JSON, json);*/
+
+
+        /*OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getApplication())))
+                .connectTimeout(2, TimeUnit.SECONDS).build();*/
+
+        String url = "http://www.wanandroid.com/user/login";
+        OkHttpClient okHttpClient = RetrofitManager.getOkHttpClient();
 
         List<Cookie> cookies = okHttpClient.cookieJar().loadForRequest(HttpUrl.parse(url));
         for (Cookie cookie : cookies) {
@@ -69,9 +75,19 @@ public class LoginActPresenter extends BasePresenter<LoginActContract.View> impl
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                //spUtils.put(CommonFields.HAS_LOGIN, true);
-                LogUtils.d(response.toString()+", "+response.body().string());
-
+                try {
+                    JSONObject json = new JSONObject(response.body().string());
+                    LogUtils.d(json.toString());
+                    int code = json.getInt("errorCode");
+                    if (code == 0) {
+                        spUtils.put(CommonFields.HAS_LOGIN, true);
+                        mView.loginSuccess();
+                    }else {
+                        mView.showFaild(json.getString("errorMsg"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

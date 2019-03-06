@@ -23,7 +23,6 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
     protected T mPresenter;
 
     protected ActivityComponent mActivityComponent;
-//    protected LoadingView mLoadingView;
 
 
     protected abstract void initInjector();
@@ -59,46 +58,4 @@ public abstract class BaseMVPActivity<T extends BaseContract.BasePresenter> exte
             mPresenter.detachView();
         }
     }
-
-    //---BaseView---begin--
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showSuccess(String message) {
-        ToastUtils.showShort(message);
-    }
-
-    @Override
-    public void showFaild(String message) {
-        ToastUtils.showShort(message);
-    }
-
-    @Override
-    public void showNoNet() {
-
-    }
-
-    @Override
-    public void onRetry() {
-
-    }
-
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return null;
-    }
-
-    @Override
-    public void jumpToLogin() {
-
-    }
-    //---BaseView---end--
 }

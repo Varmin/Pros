@@ -46,5 +46,7 @@ public interface BaseContract {
          * 跳转到登录页面
          */
         void jumpToLogin();
+
+        void finishPage();
     }
 }

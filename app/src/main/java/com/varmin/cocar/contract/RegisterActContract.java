@@ -11,6 +11,6 @@ public interface RegisterActContract {
     interface View extends BaseContract.BaseView{
     }
     interface Presenter extends BaseContract.BasePresenter<View>{
-
+        void regist(String account, String password);
     }
 }
